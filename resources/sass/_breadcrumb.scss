@@ -1,0 +1,25 @@
+.breadcrumb {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: bold;
+
+    a.breadcrumb-item:hover {
+        @apply text-primary-600;
+    }
+
+    &-item {
+        @apply text-primary-400;
+
+        &:after {
+            content: '/';
+            padding: 0 0.5rem;
+        }
+    }
+
+    &-current {
+        @apply text-gray-700;
+        font-weight: bolder;
+    }
+}

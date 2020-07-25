@@ -1,0 +1,23 @@
+#app {
+    @apply text-gray-700;
+    background-color: $body-bg;
+
+    &-content {
+        padding-top: 70px;
+    }
+}
+
+* {
+    font-family: $font-primary;
+    margin: 0;
+    padding: 0;
+}
+
+a, a:hover, a:visited, a:focus {
+    text-decoration: inherit;
+}
+
+.icon {
+    width: 16px;
+    margin-right: 0.5rem;
+}

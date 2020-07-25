@@ -1,0 +1,15 @@
+.header {
+    background: $header-bg;
+
+    &-logo {
+        @apply px-8 py-2;
+        width: 280px;
+        background: $color-primary-darker;
+        color: #ffffff;
+        font-weight: bolder;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+    }
+
+}

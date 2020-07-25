@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Cerebri Sans';
+    src: url('../fonts/Cerebri-Sans/CerebriSans-Regular.ttf');
+}
+
+// Variables
+@import "variables";
+
+// Tailwind
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
+
+// Font Awesome
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+// Styles
+@import "global";
+@import "header";
+@import "images";
+@import "breadcrumb";
+@import "form";
+@import "buttons";

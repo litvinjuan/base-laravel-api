@@ -1,0 +1,55 @@
+.form {
+
+    &-label {
+        margin-bottom: .5rem;
+        display: block;
+        color: #4a5568;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    &-input {
+        padding: .5rem;
+        line-height: 1.5;
+        display: block;
+        width: 100%;
+        border-width: 1px;
+        color: #4a5568;
+        background-color: #fff;
+        font-family: Cerebri Sans,Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        border-radius: .25rem;
+        text-align: left;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        position: relative;
+    }
+
+    &-select {
+        padding-right: 1.5rem;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAQCAYAAAAMJL+VAAAABGdBT…IkCQcjaTBjMgtXGURMVHC1wcQEy0J+Zlj8bKAnY1/UzDe2dbAVqfXn6wAAAABJRU5ErkJggg==);
+        background-size: .7rem;
+        background-repeat: no-repeat;
+        background-position: right .7rem center;
+    }
+
+    &-input, &-select {
+        padding: .5rem;
+        line-height: 1.5;
+        display: block;
+        width: 100%;
+        border-width: 1px;
+        color: #4a5568;
+        background-color: #fff;
+        font-family: Cerebri Sans,Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+        border-radius: .25rem;
+        text-align: left;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        position: relative;
+    }
+
+}

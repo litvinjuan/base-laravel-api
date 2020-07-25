@@ -1,0 +1,41 @@
+.btn-border {
+    @apply flex border border-purple-600 text-purple-600 font-bold py-2 px-4 rounded cursor-pointer;
+}
+.btn-border:hover {
+    @apply bg-purple-600 text-white;
+}
+
+.btn-fill {
+    @apply flex bg-purple-600 text-white font-bold py-2 px-4 rounded cursor-pointer;
+}
+.btn-fill:hover {
+    @apply bg-purple-800;
+}
+
+.btn-flex {
+    @apply inline-flex items-center;
+}
+
+.btn-new-model {
+    @apply btn-fill btn-flex mr-2;
+}
+.btn-new-model:hover {
+    @apply bg-purple-800;
+}
+.btn-primary {
+    padding: .75rem 1.5rem;
+    border-radius: .25rem;
+    background-color: #5661b3;
+    color: #fff;
+    font-size: .875rem;
+    font-weight: 700;
+    white-space: nowrap;
+
+    &:hover {
+        background-color: #ed8936;
+    }
+
+    &:disabled {
+        @apply bg-gray-500;
+    }
+}

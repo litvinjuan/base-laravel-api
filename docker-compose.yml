@@ -1,0 +1,98 @@
+version: '3'
+
+networks:
+  appnet:
+    driver: "bridge"
+
+volumes:
+  data:
+    driver: "local"
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+      - db
+    networks:
+      - appnet
+
+  php:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+      args:
+        GROUP_ID: 1
+        USER_ID: 1
+    container_name: php
+    volumes:
+      - .:/var/www/html
+#      - ./docker/php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+    ports:
+      - "9000:9000"
+    networks:
+      - appnet
+
+  db:
+    image: postgres:latest
+    container_name: db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "5432:5432"
+    volumes:
+      - data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: laravel
+      POSTGRES_PASSWORD: laravel
+      POSTGRES_DB: laravel
+      POSTGRES_HOST_AUTH_METHOD: trust
+    networks:
+      - appnet
+
+  composer:
+    image: composer:latest
+    container_name: composer
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    depends_on:
+      - php
+    networks:
+      - appnet
+
+  artisan:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    container_name: artisan
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    working_dir: /var/www/html
+    entrypoint: ['php', '/var/www/html/artisan']
+    networks:
+      - appnet
+
+  mail:
+    image: mailhog/mailhog:latest
+    container_name: mail
+    ports:
+      - "8025:8025"
+    networks:
+      - appnet
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - appnet
