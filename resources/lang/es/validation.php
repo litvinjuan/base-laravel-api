@@ -130,8 +130,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'password' => [
+            'current' => 'La contraseña que ingresaste es incorrecta',
         ],
     ],
 

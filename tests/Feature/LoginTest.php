@@ -43,6 +43,17 @@ class LoginTest extends TestCase
         $response->assertJsonPath('email', $user->email);
     }
 
+    public function testInvalidTokenIsUseless()
+    {
+        $user = factory(User::class)->create();
+        $loginResponse = $this->postJson(route('auth.login'), ['email' => $user->email, 'password' => 'secret']);
+        $token = $loginResponse['token'];
+
+        $response = $this->getJson(route('auth.current'), ['Authorization' => "Bearer $token-fake-token-part"]);
+
+        $response->assertStatus(401);
+    }
+
     public function testUserWithWrongPasswordCannotLogin()
     {
         $user = factory(User::class)->create();

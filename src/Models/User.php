@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Walsh\Notifications\ResetPassword;
 
 /**
  * @property int $id
@@ -30,5 +31,10 @@ class User extends Authenticatable
     public function scopeFromSocialite(Builder $query, bool $fromSocialite = true)
     {
         $query->whereNull('google_id', 'and', $fromSocialite);
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
     }
 }

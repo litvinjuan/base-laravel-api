@@ -10,11 +10,11 @@ class CurrentPasswordRule implements Rule
 {
     public function passes($attribute, $value)
     {
-        return Hash::check(Auth::user()->getAuthPassword(), $value);
+        return Hash::check($value, Auth::user()->getAuthPassword());
     }
 
     public function message()
     {
-        return 'La contraseña que ingresaste es incorrecta';
+        return trans('validation.custom.password.current');
     }
 }

@@ -18,6 +18,8 @@ return [
         'passwords' => 'users',
     ],
 
+    'reset-notification-url' => env('RESET_NOTIFICATION_URL', 'http://localhost:8000/api/auth/password/reset'),
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards

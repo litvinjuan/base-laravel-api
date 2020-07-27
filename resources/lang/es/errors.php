@@ -8,6 +8,10 @@ return [
         'callback-error' => 'Falló la autenticación con el error :message',
         'user-from-socialite' => 'Esta cuenta está conectada con GOogle. Debés ingresar con tu cuenta de Google para continuar.',
         'socialite-different-google-id' => 'Parece que hubo un error en el inicio de sesión con Google. Si seguís teniendo problemas, contactanos.',
-    ]
+    ],
+
+    'password' => [
+        'reset-error' => 'El link de recuperación de contraseña es inválido. Pedí uno nuevo e intentalo nuevamente.',
+    ],
 
 ];
